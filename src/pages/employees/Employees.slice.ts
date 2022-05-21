@@ -34,7 +34,7 @@ const slice = createSlice({
   reducers: {
     setEmployees: (state, action: PayloadAction<Employee[]>) => {
       state.employeeList = action.payload
-      localStorage.setItem('employees', JSON.stringify(initialState.employeeList))
+      localStorage.setItem('employees', JSON.stringify(action.payload))
     },
     setSelectedEmployee: (state, action: PayloadAction<Employee | null>) => {
       state.selectedEmployee = action.payload

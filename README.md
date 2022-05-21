@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Live Demo
 
-You can see the live demo here https://organization-tree-2a446.web.app
+You can see the live demo here [https://organization-tree-2a446.web.app](https://organization-tree-2a446.web.app){:target="_blank"}
 
 ## Available Scripts
 
@@ -35,3 +35,10 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Libraries/Tools
+
+1. Data source: browser localStorage
+2. State management: React redux with redux toolkit
+3. React @testing-library & jest for test
+4. Firebase for deployment
