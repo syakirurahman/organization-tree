@@ -9,15 +9,15 @@ export interface Employee {
   subordinates?: Employee[],
   totalSubordinates?: number
 }
-interface EmployeesState {
+export interface EmployeesState {
   employeeList: Employee[],
   selectedEmployee: Employee | null
 }
 
 let employeeList: Employee[];
-const existingEmployees: Employee[] = JSON.parse(localStorage.getItem('employees') || '')
+const existingEmployees = localStorage.getItem('employees')
 if (existingEmployees) {
-  employeeList = existingEmployees
+  employeeList = JSON.parse(existingEmployees) as Employee[]
 } else {
   localStorage.setItem('employees', JSON.stringify(employees))
   employeeList = employees
@@ -59,9 +59,12 @@ export const selectEmployee = (employee: Employee): AppThunk => (dispatch, getSt
     let totalSubordinates = subordinates.length;
     if (subordinates.length > 0) {
       for (const subordinate of subordinates) {
-        const { subordinates, totalSubordinates: totalGrandSubordinates} = getSubordinates(subordinate)
-        subordinate.subordinates = subordinates
-        totalSubordinates += totalGrandSubordinates
+
+        if (employee.employeeId !== subordinate.employeeId) {
+          const { subordinates, totalSubordinates: totalGrandSubordinates} = getSubordinates(subordinate)
+          subordinate.subordinates = subordinates
+          totalSubordinates += totalGrandSubordinates            
+        }
       }
     }
     return {
@@ -87,12 +90,12 @@ export const addEmployee = (name: string, managerId?: number): AppThunk => (disp
   dispatch(setEmployees(employeeList))
 }
 
-export const editEmployee = (toBeEdited: Employee): AppThunk => (dispatch, getState) => {
+export const editEmployee = (editPayload: Employee): AppThunk => (dispatch, getState) => {
   const employeeList: Employee[] = JSON.parse(JSON.stringify(getState().employees.employeeList))
-  const employeeToBeEdited = employeeList.find(employee => employee.employeeId === toBeEdited.employeeId)
+  const employeeToBeEdited = employeeList.find(employee => employee.employeeId === editPayload.employeeId)
   if (employeeToBeEdited) {
-    employeeToBeEdited.name = toBeEdited.name
-    employeeToBeEdited.managerId = toBeEdited.managerId
+    employeeToBeEdited.name = editPayload.name
+    employeeToBeEdited.managerId = editPayload.managerId
   }
   dispatch(setEmployees(employeeList))
 }

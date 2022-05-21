@@ -53,6 +53,8 @@ a, a:link {
 .form-group {
   label {
     font-weight: bold;
+    margin-bottom: 7px;
+    display: block;
   }
   margin-bottom: 20px;
 }
@@ -70,7 +72,7 @@ a, a:link {
 .btn {
   background-color: #fff;
   white-space: nowrap;
-  padding:8px 24px;
+  padding:12px 24px;
   border:1px solid #dedede;
   border-radius: 5px;
   cursor: pointer;

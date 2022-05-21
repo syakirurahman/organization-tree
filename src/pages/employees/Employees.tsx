@@ -1,12 +1,14 @@
 
 import React, { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { AddEditForm } from './components/AddEditForm'
 import { EmployeeTree } from './components/EmployeeTree'
 import styles from './Employees.module.scss'
 import { clearSelectedEmployee, Employee, searchEmployees, selectEmployee, deleteEmployee } from './Employees.slice'
 export default function Employees() {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [suggestions, setSuggestions] = useState<Employee[]>([])
+  const [inputMode, setInputMode] = useState<boolean>(false)
 
   // Actually we can use react built in state management instead of react redux
   // But, this is what i do when deal with data that come from API
@@ -69,12 +71,12 @@ export default function Employees() {
             onClick={() => selectedEmployee && dispatch(deleteEmployee(selectedEmployee))}>
             Delete
           </button>
-          <button type='button' className='btn btn-primary' disabled={selectedEmployee===null} onClick={() => {}}>Edit</button>
-          <button type='button' className='btn btn-primary' onClick={() => {}}>Add</button>
+          <button type='button' className='btn btn-primary' disabled={selectedEmployee===null} onClick={() => setInputMode(true)}>Edit</button>
+          <button type='button' className='btn btn-primary' onClick={() => { dispatch(clearSelectedEmployee()); setInputMode(true)}}>Add</button>
         </div>
       </div>
       {
-        selectedEmployee &&
+        !inputMode && selectedEmployee &&
           <div className={styles.selectedEmployee}>
             <h3>{ selectedEmployee.name }</h3>
             {
@@ -86,6 +88,9 @@ export default function Employees() {
                 <small><i>This employee do not have any subordinate</i></small>    
             }
           </div>
+      }
+      {
+        inputMode && <AddEditForm employee={selectedEmployee || undefined} onDone={() => setInputMode(false)}/>
       }
 
     </div>

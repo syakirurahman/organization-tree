@@ -42,4 +42,11 @@
       }
     }  
   }
+  .addEditForm {
+    max-width: 500px;
+    margin: 20px auto;
+    :global(.btn) {
+      margin-left: 15px;
+    }
+  }
 }
