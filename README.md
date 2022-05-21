@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Live Demo
 
-You can see the live demo here [https://organization-tree-2a446.web.app](https://organization-tree-2a446.web.app){:target="_blank"}
+You can see the live demo here [https://organization-tree-2a446.web.app](https://organization-tree-2a446.web.app)
 
 ## Available Scripts
 
