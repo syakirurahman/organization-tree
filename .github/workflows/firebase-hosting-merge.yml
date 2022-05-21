@@ -15,6 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_POKEMON_CATCHER_18636 }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ORGANIZATION_TREE_2A446 }}'
           channelId: live
-          projectId: pokemon-catcher-18636
+          projectId: organization-tree-2a446
