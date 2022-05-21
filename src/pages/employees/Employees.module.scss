@@ -1,0 +1,45 @@
+.employees {
+  padding:10px;
+  .actionsBlock {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    justify-content: space-between;
+    >div {
+      display: flex;
+      gap: 15px;        
+    }
+  }
+  .autocomplete {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    .autocompleteSuggestions {
+      position: absolute;
+      top:100%;
+      left: 0;
+      right: 0;
+      border:1px solid #dedede;
+      border-top: 0;
+      margin-top: -1px;
+      max-height: 400px;
+      overflow: auto;
+      .employee {
+        cursor: pointer;
+        padding: 10px 15px;
+        &:not(:first-child) {
+          border-top: 1px solid #dedede;
+        }
+      }
+    }  
+  }
+  .selectedEmployee {
+    padding: 20px 15px;
+    ul {
+      padding:3px 0;
+      li {
+        padding: 3px 0;
+      }
+    }  
+  }
+}

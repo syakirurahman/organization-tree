@@ -1,0 +1,91 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15px;
+  background-color: #f3f3f3;
+  color: #535353;
+}
+h1,h2,h3,h4,h5,h6 {
+  margin-bottom: .5em;
+}
+h1,h2,h3 {
+  font-weight: bold;
+}
+ul, ol {
+  margin-left: 20px;
+}
+p {
+  margin-bottom: 15px;
+}
+a, a:link {
+  color: #333;
+  &:href {
+    text-decoration: none;
+  }
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.app-wrapper {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 10px 15px;
+  width:100%;
+  min-height: 100vh;
+  max-width: 1024px;
+  .app-header {
+    text-align: center;
+  }
+}
+.form-group {
+  label {
+    font-weight: bold;
+  }
+  margin-bottom: 20px;
+}
+.form-control {
+  padding: 12px 15px;
+  border-radius: 3px;
+  border: 1px solid #dedede;
+  display: block;
+  width: 100%;
+  &:focus {
+    border-color: #cdcdcd;
+    outline: none;
+  }
+}
+.btn {
+  background-color: #fff;
+  white-space: nowrap;
+  padding:8px 24px;
+  border:1px solid #dedede;
+  border-radius: 5px;
+  cursor: pointer;
+  &.btn-primary {
+    color: #fff;
+    border-color: #5579ff;
+    background-color: #5579ff;
+  }
+  &.btn-danger {
+    color: #fff;
+    border-color: #ff5579;
+    background-color: #ff5579;
+  }
+  &:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+  }
+}
